@@ -1,0 +1,23 @@
+-- LavaLust Laboratory Exercise 4 database export
+-- Import this file in phpMyAdmin, MySQL Workbench, or the mysql CLI.
+
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `firstname` VARCHAR(100) NOT NULL,
+  `lastname` VARCHAR(100) NOT NULL,
+  `email` VARCHAR(150) NOT NULL,
+  `username` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO `users` (`firstname`, `lastname`, `email`, `username`) VALUES
+  ('krystal', 'Fabic', 'krystal@gmail.com', 'krystalfabic'),
+  ('Jenny', 'Beredo', 'jenny@gmail.com', 'jennyberedo'),
+  ('Bri', 'Cruzat', 'bri@gmail.com', 'bricruzat'),
+  ('Adi', 'Dima', 'adi@gmail.com', 'adidima'),
+  ('Jink', 'Macandili', 'jink@gmail.com', 'jinkmacandili');
+
+SELECT * FROM `users` ORDER BY `id`;
