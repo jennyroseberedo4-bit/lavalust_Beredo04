@@ -46,3 +46,18 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 $router->get('/', 'Welcome::index');
 $router->get('/users', 'UsersController::index');
+
+$router->get('/login', 'AuthController::login');
+$router->post('/login', 'AuthController::authenticate');
+$router->get('/signup', 'AuthController::signup');
+$router->post('/signup', 'AuthController::register');
+$router->post('/logout', 'AuthController::logout');
+
+$router->group(['middleware' => 'auth'], function ($router) {
+	$router->get('/products', 'ProductsController::index');
+	$router->get('/products/create', 'ProductsController::create');
+	$router->post('/products', 'ProductsController::store');
+	$router->get('/products/edit/{id}', 'ProductsController::edit');
+	$router->post('/products/edit/{id}', 'ProductsController::update');
+	$router->post('/products/delete/{id}', 'ProductsController::delete');
+});

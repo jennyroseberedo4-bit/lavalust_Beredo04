@@ -10,6 +10,7 @@ CREATE TABLE `users` (
   `lastname` VARCHAR(100) NOT NULL,
   `email` VARCHAR(150) NOT NULL,
   `username` VARCHAR(100) NOT NULL,
+  `password_hash` VARCHAR(255) NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
