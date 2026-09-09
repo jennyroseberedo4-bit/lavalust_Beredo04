@@ -55,6 +55,7 @@ $router->post('/logout', 'AuthController::logout');
 
 $router->group(['middleware' => 'auth'], function ($router) {
 	$router->get('/products', 'ProductsController::index');
+	$router->get('/product', 'ProductsController::index');
 	$router->get('/products/create', 'ProductsController::create');
 	$router->post('/products', 'ProductsController::store');
 	$router->get('/products/edit/{id}', 'ProductsController::edit');
