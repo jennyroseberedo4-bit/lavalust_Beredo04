@@ -14,11 +14,11 @@ $env_value = static function ($names, $default = '') {
 
 $database['main'] = array(
     'driver'    => 'mysql',
-    'hostname'  => $env_value(['DB_HOST', 'MYSQL_HOST', 'AIVEN_HOST']),
-    'port'      => $env_value(['DB_PORT', 'MYSQL_PORT', 'AIVEN_PORT'], '3306'),
-    'username'  => $env_value(['DB_USERNAME', 'MYSQL_USER', 'AIVEN_USER']),
+    'hostname'  => $env_value(['DB_HOST', 'MYSQL_HOST', 'AIVEN_HOST'], 'mysql-1d8a6099-lavalust-fabic-0b88.a.aivencloud.com'),
+    'port'      => $env_value(['DB_PORT', 'MYSQL_PORT', 'AIVEN_PORT'], '19881'),
+    'username'  => $env_value(['DB_USERNAME', 'MYSQL_USER', 'AIVEN_USER'], 'avnadmin'),
     'password'  => $env_value(['DB_PASSWORD', 'MYSQL_PASSWORD', 'AIVEN_PASSWORD']),
-    'database'  => $env_value(['DB_NAME', 'MYSQL_DATABASE', 'AIVEN_DATABASE']),
+    'database'  => $env_value(['DB_NAME', 'MYSQL_DATABASE', 'AIVEN_DATABASE'], 'defaultdb'),
     'charset'   => 'utf8mb4',
     'dbprefix'  => '',
     'path'      => ''
