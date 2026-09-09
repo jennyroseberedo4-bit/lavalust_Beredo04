@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: lavalust-krystal
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: APP_KEY
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: ADMIN_USERNAME
+        sync: false
+      - key: ADMIN_PASSWORD_HASH
+        sync: false
