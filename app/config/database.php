@@ -12,13 +12,29 @@ $env_value = static function ($names, $default = '') {
     return $default;
 };
 
+$is_render = strtolower((string) getenv('RENDER')) === 'true'
+    || getenv('RENDER_SERVICE_ID') !== false;
+$default_host = $is_render
+    ? 'mysql-1d8a6099-lavalust-fabic-0b88.a.aivencloud.com'
+    : '127.0.0.1';
+$default_port = $is_render ? '19881' : '3306';
+$default_user = $is_render ? 'avnadmin' : 'root';
+$default_database = $is_render ? 'defaultdb' : 'mydbb';
+$hostname = $env_value(['DB_HOST', 'MYSQL_HOST', 'AIVEN_HOST'], $default_host);
+$port = $env_value(['DB_PORT', 'MYSQL_PORT', 'AIVEN_PORT'], $default_port);
+
+if ($is_render && in_array(strtolower($hostname), ['127.0.0.1', 'localhost'], true)) {
+    $hostname = $default_host;
+    $port = $default_port;
+}
+
 $database['main'] = array(
     'driver'    => 'mysql',
-    'hostname'  => $env_value(['DB_HOST', 'MYSQL_HOST', 'AIVEN_HOST'], '127.0.0.1'),
-    'port'      => $env_value(['DB_PORT', 'MYSQL_PORT', 'AIVEN_PORT'], '3306'),
-    'username'  => $env_value(['DB_USERNAME', 'MYSQL_USER', 'AIVEN_USER'], 'root'),
+    'hostname'  => $hostname,
+    'port'      => $port,
+    'username'  => $env_value(['DB_USERNAME', 'MYSQL_USER', 'AIVEN_USER'], $default_user),
     'password'  => $env_value(['DB_PASSWORD', 'MYSQL_PASSWORD', 'AIVEN_PASSWORD'], ''),
-    'database'  => $env_value(['DB_NAME', 'MYSQL_DATABASE', 'AIVEN_DATABASE'], 'mydbb'),
+    'database'  => $env_value(['DB_NAME', 'MYSQL_DATABASE', 'AIVEN_DATABASE'], $default_database),
     'charset'   => 'utf8mb4',
     'dbprefix'  => '',
     'path'      => ''
