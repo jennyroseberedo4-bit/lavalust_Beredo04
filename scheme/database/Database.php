@@ -277,6 +277,7 @@ class Database {
         try {
             $this->db = new PDO($dsn, $username, $password, $options);
             $this->driver = $this->db->getAttribute(PDO::ATTR_DRIVER_NAME);
+            $this->ensure_application_schema();
         } catch (Exception $e) {
             $error = load_class('Errors', 'kernel');
             $error->show_database_error(
@@ -286,6 +287,29 @@ class Database {
                 $e
             );
         }
+    }
+
+    private function ensure_application_schema()
+    {
+        $this->db->exec("CREATE TABLE IF NOT EXISTS users (
+            id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+            firstname VARCHAR(100) NOT NULL,
+            lastname VARCHAR(100) NOT NULL,
+            email VARCHAR(150) NOT NULL,
+            username VARCHAR(100) NOT NULL,
+            password_hash VARCHAR(255) NULL,
+            PRIMARY KEY (id)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+        $this->db->exec("CREATE TABLE IF NOT EXISTS products (
+            id INT NOT NULL AUTO_INCREMENT,
+            product_name VARCHAR(100) NOT NULL,
+            description TEXT NOT NULL,
+            price DECIMAL(10,2) NOT NULL,
+            quantity INT NOT NULL DEFAULT 0,
+            created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
     }
 
     /**
