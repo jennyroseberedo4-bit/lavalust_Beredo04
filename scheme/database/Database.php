@@ -310,6 +310,18 @@ class Database {
             created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (id)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+
+        $this->db->exec("INSERT INTO users (firstname, lastname, email, username)
+            SELECT seed.firstname, seed.lastname, seed.email, seed.username
+            FROM (SELECT 'Brianna' AS firstname, 'Cruzat' AS lastname, 'brianna@gmail.com' AS email, 'briannacruzat' AS username
+                UNION ALL SELECT 'Jenny', 'Beredo', 'jenny@gmail.com', 'jennyberedo'
+                UNION ALL SELECT 'Krystal', 'Fabic', 'krystal@gmail.com', 'krystalfabic'
+                UNION ALL SELECT 'Adi', 'Dima', 'adi@gmail.com', 'adidima'
+                UNION ALL SELECT 'Jink', 'Macandili', 'jink@gmail.com', 'jinkmacandili'
+                UNION ALL SELECT 'Syl', 'Casten', 'syl@gmail.com', 'sylcasten'
+                UNION ALL SELECT 'Rosei', 'Estolano', 'rosei@gmail.com', 'roseiestolano'
+                UNION ALL SELECT 'Maria', 'Beredo', 'maria@gmail.com', 'mariaberedo') AS seed
+            WHERE NOT EXISTS (SELECT 1 FROM users LIMIT 1)");
     }
 
     /**
