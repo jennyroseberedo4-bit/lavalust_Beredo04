@@ -270,8 +270,8 @@ class Database {
             PDO::ATTR_EMULATE_PREPARES   => false,
         );
 
-        if ($use_ssl && defined('PDO\\Mysql::ATTR_SSL_VERIFY_SERVER_CERT')) {
-            $options[PDO\\Mysql::ATTR_SSL_VERIFY_SERVER_CERT] = false;
+        if ($use_ssl && defined('PDO\Mysql::ATTR_SSL_VERIFY_SERVER_CERT')) {
+            $options[PDO\Mysql::ATTR_SSL_VERIFY_SERVER_CERT] = false;
         }
 
         try {
