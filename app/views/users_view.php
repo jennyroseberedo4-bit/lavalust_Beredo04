@@ -54,14 +54,14 @@
             align-items: end;
             justify-content: space-between;
             gap: 24px;
-            margin-bottom: 34px;
+            margin-bottom: 26px;
         }
 
         h1 {
             margin: 0;
             color: var(--ink);
             font-family: 'Syne', 'Trebuchet MS', sans-serif;
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-size: clamp(2.8rem, 7vw, 4.8rem);
             font-weight: 800;
             line-height: 0.9;
             letter-spacing: -0.06em;
@@ -96,7 +96,19 @@
         }
 
         .panel-title { margin: 0; color: var(--ink); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .panel-tools { display: flex; align-items: center; gap: 16px; }
         .count { color: var(--red); font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; }
+        .search {
+            width: min(220px, 34vw);
+            padding: 9px 12px;
+            border: 1px solid var(--line);
+            border-radius: 7px;
+            outline: 0;
+            color: var(--ink);
+            background: #fff;
+            font: 500 0.78rem 'Manrope', sans-serif;
+        }
+        .search:focus { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(255, 77, 116, 0.12); }
         .table-scroll { overflow-x: auto; }
         table { width: 100%; min-width: 720px; border-collapse: collapse; }
         th, td { padding: 18px 20px; border-bottom: 1px solid var(--line); text-align: left; }
@@ -128,7 +140,10 @@
         <section class="table-panel">
             <div class="panel-bar">
                 <h2 class="panel-title">User registry</h2>
-                <span class="count"><?= count($users ?? []) ?> records</span>
+                <div class="panel-tools">
+                    <input class="search" type="search" placeholder="Search users" aria-label="Search users" data-user-search>
+                    <span class="count" data-user-count><?= count($users ?? []) ?> records</span>
+                </div>
             </div>
             <div class="table-scroll">
                 <table>
@@ -144,7 +159,7 @@
                     <tbody>
                         <?php if (!empty($users)): ?>
                             <?php foreach ($users as $user): ?>
-                                <tr>
+                                <tr data-user-row>
                                     <td><?= htmlspecialchars($user['id'], ENT_QUOTES, 'UTF-8') ?></td>
                                     <td><?= htmlspecialchars($user['firstname'], ENT_QUOTES, 'UTF-8') ?></td>
                                     <td><?= htmlspecialchars($user['lastname'], ENT_QUOTES, 'UTF-8') ?></td>
@@ -162,5 +177,23 @@
             </div>
         </section>
     </main>
+    <script>
+        const search = document.querySelector('[data-user-search]');
+        const rows = [...document.querySelectorAll('[data-user-row]')];
+        const count = document.querySelector('[data-user-count]');
+
+        search?.addEventListener('input', () => {
+            const query = search.value.trim().toLowerCase();
+            let visible = 0;
+
+            rows.forEach((row) => {
+                const matches = row.textContent.toLowerCase().includes(query);
+                row.hidden = !matches;
+                if (matches) visible += 1;
+            });
+
+            if (count) count.textContent = `${visible} records`;
+        });
+    </script>
 </body>
 </html>
