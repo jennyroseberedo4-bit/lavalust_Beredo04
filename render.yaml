@@ -7,7 +7,7 @@ services:
       - key: APP_KEY
         sync: false
       - key: DB_HOST
-        value: mysql-22e00abe-lavalustproject-beredo24.aivencloud.com
+        value: mysql-3b526c30-lavalustproject-beredo24.aivencloud.com
       - key: DB_PORT
         value: "12239"
       - key: DB_USERNAME
