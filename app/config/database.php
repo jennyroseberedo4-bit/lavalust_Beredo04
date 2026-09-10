@@ -16,7 +16,7 @@ $is_render = strtolower((string) getenv('RENDER')) === 'true'
     || getenv('RENDER_SERVICE_ID') !== false
     || stripos((string) ($_SERVER['HTTP_HOST'] ?? ''), '.onrender.com') !== false;
 $default_host = $is_render
-    ? 'mysql-3b526c30-lavalustproject-beredo24.aivencloud.com'
+    ? 'mysql-3b526c30-lavalustproject-beredo24.g.aivencloud.com'
     : '127.0.0.1';
 $default_port = $is_render ? '12239' : '3306';
 $default_user = $is_render ? 'avnadmin' : 'root';
