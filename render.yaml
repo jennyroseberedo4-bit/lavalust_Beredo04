@@ -7,15 +7,17 @@ services:
       - key: APP_KEY
         sync: false
       - key: DB_HOST
-        value: mysql-1d8a6099-lavalust-fabic-0b88.a.aivencloud.com
+        value: mysql-22e00abe-lavalustproject-beredo24.aivencloud.com
       - key: DB_PORT
-        value: "19881"
+        value: "12239"
       - key: DB_USERNAME
         value: avnadmin
       - key: DB_PASSWORD
         sync: false
       - key: DB_NAME
         value: defaultdb
+      - key: DB_SSL_MODE
+        value: required
       - key: ADMIN_USERNAME
         sync: false
       - key: ADMIN_PASSWORD_HASH

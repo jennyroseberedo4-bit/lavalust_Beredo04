@@ -16,9 +16,9 @@ $is_render = strtolower((string) getenv('RENDER')) === 'true'
     || getenv('RENDER_SERVICE_ID') !== false
     || stripos((string) ($_SERVER['HTTP_HOST'] ?? ''), '.onrender.com') !== false;
 $default_host = $is_render
-    ? 'mysql-1d8a6099-lavalust-fabic-0b88.a.aivencloud.com'
+    ? 'mysql-22e00abe-lavalustproject-beredo24.aivencloud.com'
     : '127.0.0.1';
-$default_port = $is_render ? '19881' : '3306';
+$default_port = $is_render ? '12239' : '3306';
 $default_user = $is_render ? 'avnadmin' : 'root';
 $default_database = $is_render ? 'defaultdb' : 'mydbb';
 $hostname = $env_value(['DB_HOST', 'MYSQL_HOST', 'AIVEN_HOST'], $default_host);
@@ -36,6 +36,7 @@ $database['main'] = array(
     'username'  => $env_value(['DB_USERNAME', 'MYSQL_USER', 'AIVEN_USER'], $default_user),
     'password'  => $env_value(['DB_PASSWORD', 'MYSQL_PASSWORD', 'AIVEN_PASSWORD'], ''),
     'database'  => $env_value(['DB_NAME', 'MYSQL_DATABASE', 'AIVEN_DATABASE'], $default_database),
+    'ssl'       => $is_render || strtolower($env_value(['DB_SSL_MODE'], '')) === 'required',
     'charset'   => 'utf8mb4',
     'dbprefix'  => '',
     'path'      => ''

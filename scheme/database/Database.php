@@ -242,6 +242,8 @@ class Database {
             ? $database_config['path']
             : null;
 
+        $use_ssl = !empty($database_config['ssl']);
+
         switch ($driver) {
             case 'mysql':
                 $dsn = "mysql:host=$host;dbname=$dbname_value;charset=$charset;port=$port";
@@ -267,6 +269,10 @@ class Database {
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => false,
         );
+
+        if ($use_ssl && defined('PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT')) {
+            $options[PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT] = false;
+        }
 
         try {
             $this->db = new PDO($dsn, $username, $password, $options);
