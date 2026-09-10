@@ -7,15 +7,15 @@ services:
       - key: APP_KEY
         sync: false
       - key: DB_HOST
-        sync: false
+        value: mysql-1d8a6099-lavalust-fabic-0b88.a.aivencloud.com
       - key: DB_PORT
-        sync: false
+        value: "19881"
       - key: DB_USERNAME
-        sync: false
+        value: avnadmin
       - key: DB_PASSWORD
         sync: false
       - key: DB_NAME
-        sync: false
+        value: defaultdb
       - key: ADMIN_USERNAME
         sync: false
       - key: ADMIN_PASSWORD_HASH
