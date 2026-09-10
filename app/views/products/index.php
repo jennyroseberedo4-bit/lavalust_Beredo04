@@ -15,8 +15,8 @@
         .topbar, .actions, .product-card { border: 1px solid var(--line); background: rgba(255,248,250,.94); }
         .topbar { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding: 28px 30px; border-radius: 16px 16px 0 0; }
         .eyebrow { margin: 0 0 12px; color: var(--red); font: 500 .72rem 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; }
-        h1 { margin: 0; font: 800 clamp(2.5rem, 7vw, 5.2rem)/.9 'Syne', sans-serif; letter-spacing: -.06em; }
-        .topbar p { max-width: 280px; margin: 0; color: var(--muted); line-height: 1.5; text-align: right; }
+        h1 { margin: 0; font: 800 clamp(2.5rem, 6vw, 4.2rem)/.95 'Syne', sans-serif; letter-spacing: 0; }
+        .topbar p { max-width: 280px; margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.5; text-align: right; }
         .actions { display: flex; justify-content: space-between; gap: 16px; padding: 16px 30px; border-top: 0; }
         .actions span { color: var(--muted); font: 500 .76rem 'DM Mono', monospace; }
         a, button { border: 0; border-radius: 7px; padding: 10px 14px; color: #fff; background: linear-gradient(135deg, var(--red), var(--pink)); font: 700 .8rem 'Manrope', sans-serif; text-decoration: none; cursor: pointer; }

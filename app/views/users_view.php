@@ -61,10 +61,10 @@
             margin: 0;
             color: var(--ink);
             font-family: 'Syne', 'Trebuchet MS', sans-serif;
-            font-size: clamp(2.8rem, 7vw, 4.8rem);
+            font-size: clamp(2.5rem, 6vw, 4.2rem);
             font-weight: 800;
             line-height: 0.9;
-            letter-spacing: -0.06em;
+            letter-spacing: 0;
         }
 
         .heading p {
