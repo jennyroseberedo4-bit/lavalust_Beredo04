@@ -13,7 +13,8 @@ $env_value = static function ($names, $default = '') {
 };
 
 $is_render = strtolower((string) getenv('RENDER')) === 'true'
-    || getenv('RENDER_SERVICE_ID') !== false;
+    || getenv('RENDER_SERVICE_ID') !== false
+    || stripos((string) ($_SERVER['HTTP_HOST'] ?? ''), '.onrender.com') !== false;
 $default_host = $is_render
     ? 'mysql-1d8a6099-lavalust-fabic-0b88.a.aivencloud.com'
     : '127.0.0.1';
