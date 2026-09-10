@@ -9,15 +9,15 @@
         @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap');
 
         :root {
-            --lavender: #e9ddff;
-            --lavender-deep: #c7b1f4;
-            --plum: #2a1745;
-            --plum-soft: #725b91;
-            --ink: #38264d;
-            --line: #d7c5f0;
-            --paper: #fffaff;
-            --violet: #805ad5;
-            --magenta: #c044a3;
+            --pink: #ff4d74;
+            --red: #d91d3d;
+            --rose: #ffe2e8;
+            --rose-soft: #fff0f4;
+            --ink: #3a0f1d;
+            --muted: #7f3d4a;
+            --line: #f5bfd0;
+            --paper: #fff7f8;
+            --shadow: rgba(217, 29, 61, 0.18);
         }
 
         * { box-sizing: border-box; }
@@ -31,9 +31,9 @@
             background:
                 linear-gradient(rgba(255, 255, 255, 0.38) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.38) 1px, transparent 1px),
-                radial-gradient(circle at 92% 8%, rgba(192, 68, 163, 0.2), transparent 25%),
-                linear-gradient(125deg, rgba(128, 90, 213, 0.12), transparent 42%),
-                var(--lavender);
+                radial-gradient(circle at 92% 8%, rgba(217, 29, 61, 0.18), transparent 25%),
+                linear-gradient(125deg, rgba(255, 77, 116, 0.08), transparent 44%),
+                linear-gradient(135deg, #ffe7ec, #fff6f8 52%, #ffdfe7);
             background-size: 32px 32px, 32px 32px, auto, auto, auto;
         }
 
@@ -41,7 +41,7 @@
 
         .eyebrow {
             margin: 0 0 12px;
-            color: var(--magenta);
+            color: var(--red);
             font-family: 'DM Mono', monospace;
             font-size: 0.72rem;
             font-weight: 700;
@@ -59,7 +59,7 @@
 
         h1 {
             margin: 0;
-            color: var(--plum);
+            color: var(--ink);
             font-family: 'Syne', 'Trebuchet MS', sans-serif;
             font-size: clamp(2.8rem, 7vw, 5.5rem);
             font-weight: 800;
@@ -70,7 +70,7 @@
         .heading p {
             max-width: 260px;
             margin: 0;
-            color: var(--plum-soft);
+            color: var(--muted);
             font-size: 0.9rem;
             font-weight: 500;
             line-height: 1.5;
@@ -80,9 +80,9 @@
         .table-panel {
             overflow: hidden;
             border: 1px solid var(--line);
-            border-top: 4px solid var(--violet);
+            border-top: 4px solid var(--red);
             background: var(--paper);
-            box-shadow: 10px 10px 0 var(--lavender-deep);
+            box-shadow: 10px 10px 0 var(--shadow);
             border-radius: 14px;
         }
 
@@ -92,22 +92,22 @@
             justify-content: space-between;
             padding: 18px 20px;
             border-bottom: 1px solid var(--line);
-            background: rgba(255, 250, 255, 0.86);
+            background: rgba(255, 248, 250, 0.9);
         }
 
-        .panel-title { margin: 0; color: var(--plum); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
-        .count { color: var(--violet); font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; }
+        .panel-title { margin: 0; color: var(--ink); font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        .count { color: var(--red); font-family: 'DM Mono', monospace; font-size: 0.75rem; font-weight: 500; }
         .table-scroll { overflow-x: auto; }
         table { width: 100%; min-width: 720px; border-collapse: collapse; }
         th, td { padding: 18px 20px; border-bottom: 1px solid var(--line); text-align: left; }
-        th { color: var(--plum-soft); background: #f4edff; font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
+        th { color: var(--muted); background: var(--rose-soft); font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; }
         td { color: var(--ink); font-size: 0.92rem; }
         tbody tr { transition: background-color 0.2s; }
-        tbody tr:hover { background: #f8f1ff; }
+        tbody tr:hover { background: #fff3f6; }
         tbody tr:last-child td { border-bottom: 0; }
-        td:first-child { color: var(--magenta); font-family: 'DM Mono', monospace; font-weight: 500; }
-        td:nth-child(4) { color: var(--violet); }
-        .empty { color: var(--plum-soft); text-align: center; }
+        td:first-child { color: var(--red); font-family: 'DM Mono', monospace; font-weight: 500; }
+        td:nth-child(4) { color: var(--pink); font-weight: 600; }
+        .empty { color: var(--muted); text-align: center; }
 
         @media (max-width: 640px) {
             body { padding: 32px 14px; }
