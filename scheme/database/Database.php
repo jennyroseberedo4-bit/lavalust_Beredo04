@@ -322,6 +322,13 @@ class Database {
                 UNION ALL SELECT 'Rosei', 'Estolano', 'rosei@gmail.com', 'roseiestolano'
                 UNION ALL SELECT 'Maria', 'Beredo', 'maria@gmail.com', 'mariaberedo') AS seed
             WHERE NOT EXISTS (SELECT 1 FROM users LIMIT 1)");
+
+        $this->db->exec("INSERT INTO products (product_name, description, price, quantity)
+            SELECT seed.product_name, seed.description, seed.price, seed.quantity
+            FROM (SELECT 'nike' AS product_name, 'sobra ganda sa paa' AS description, 1200.00 AS price, 1 AS quantity
+                UNION ALL SELECT 'adidas', 'masarap sa paa', 1300.00, 1
+                UNION ALL SELECT 'puma', 'maganda ang quality', 1500.00, 1) AS seed
+            WHERE NOT EXISTS (SELECT 1 FROM products LIMIT 1)");
     }
 
     /**
