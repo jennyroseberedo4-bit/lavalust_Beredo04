@@ -8,31 +8,31 @@
     <title>Products | LavaLust</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&family=Syne:wght@700;800&display=swap');
-        :root { --ink: #3a0f1d; --muted: #7f3d4a; --pink: #ff4d74; --red: #d91d3d; --rose: #ffe2e8; --paper: #fff7f8; --line: #f5bfd0; }
+        :root { --ink: #fdeef0; --muted: #a5717c; --pink: #ff4d74; --red: #ff2e4d; --red-dim: #c81a37; --rose: rgba(255,46,77,.14); --paper: #170709; --bg2: #1a0a0d; --line: rgba(255,77,116,.18); --shadow: rgba(255,46,77,.22); }
         * { box-sizing: border-box; }
-        body { min-height: 100vh; margin: 0; padding: 42px 24px; color: var(--ink); font-family: 'Manrope', sans-serif; background: linear-gradient(rgba(255,255,255,.38) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.38) 1px, transparent 1px), radial-gradient(circle at 90% 8%, rgba(217,29,61,.18), transparent 25%), linear-gradient(135deg, #ffe7ec, #fff4f7 40%, #ffdfe7); background-size: 32px 32px, 32px 32px, auto, auto; }
+        body { min-height: 100vh; margin: 0; padding: 42px 24px; color: var(--ink); font-family: 'Manrope', sans-serif; background: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px), radial-gradient(circle at 90% 8%, rgba(255,46,77,.16), transparent 25%), linear-gradient(135deg, #150608, #0e0405 40%, #170709); background-size: 32px 32px, 32px 32px, auto, auto; }
         main { width: min(1160px, 100%); margin: auto; }
-        .topbar, .actions, .product-card { border: 1px solid var(--line); background: rgba(255,248,250,.94); }
+        .topbar, .actions, .product-card { border: 1px solid var(--line); background: var(--paper); }
         .topbar { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding: 28px 30px; border-radius: 16px 16px 0 0; }
         .eyebrow { margin: 0 0 12px; color: var(--red); font: 500 .72rem 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; }
-        h1 { margin: 0; font: 800 clamp(2.5rem, 6vw, 4.2rem)/.95 'Syne', sans-serif; letter-spacing: 0; }
+        h1 { margin: 0; color: var(--ink); font: 800 clamp(2.5rem, 6vw, 4.2rem)/.95 'Syne', sans-serif; letter-spacing: 0; }
         .topbar p { max-width: 280px; margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.5; text-align: right; }
         .actions { display: flex; justify-content: space-between; gap: 16px; padding: 16px 30px; border-top: 0; }
         .actions span { color: var(--muted); font: 500 .76rem 'DM Mono', monospace; }
         a, button { border: 0; border-radius: 7px; padding: 10px 14px; color: #fff; background: linear-gradient(135deg, var(--red), var(--pink)); font: 700 .8rem 'Manrope', sans-serif; text-decoration: none; cursor: pointer; }
-        a:hover, button:hover { filter: brightness(.96); }
+        a:hover, button:hover { filter: brightness(1.08); }
         .logout { color: var(--red); background: transparent; border: 1px solid var(--line); }
-        .product-card { overflow-x: auto; border-top: 0; border-radius: 0 0 16px 16px; box-shadow: 10px 10px 0 rgba(217,29,61,.18); }
+        .product-card { overflow-x: auto; border-top: 0; border-radius: 0 0 16px 16px; box-shadow: 10px 10px 0 var(--shadow); }
         table { width: 100%; min-width: 820px; border-collapse: collapse; }
         th, td { padding: 17px 20px; border-bottom: 1px solid var(--line); text-align: left; }
-        th { color: var(--muted); background: #fff0f3; font: 500 .68rem 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; }
-        td { font-size: .9rem; vertical-align: top; }
+        th { color: var(--muted); background: var(--rose); font: 500 .68rem 'DM Mono', monospace; letter-spacing: .1em; text-transform: uppercase; }
+        td { color: var(--ink); font-size: .9rem; vertical-align: top; }
         td:first-child { color: var(--red); font-family: 'DM Mono', monospace; }
         td:nth-child(3) { color: var(--red); font-weight: 700; }
         .description { max-width: 280px; color: var(--muted); }
         .row-actions { display: flex; gap: 8px; }
-        .edit { color: var(--red); background: #ffe9ee; }
-        .delete { color: #9d1635; background: #ffe2e8; }
+        .edit { color: var(--red); background: rgba(255,46,77,.12); }
+        .delete { color: #ff6f8a; background: rgba(255,46,77,.16); }
         .empty { padding: 36px; color: var(--muted); text-align: center; }
         @media (max-width: 640px) { body { padding: 20px 14px; } .topbar { align-items: start; flex-direction: column; padding: 24px 20px; } .topbar p { text-align: left; } .actions { align-items: start; flex-direction: column; padding: 14px 20px; } }
     </style>
