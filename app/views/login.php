@@ -8,20 +8,22 @@
     <title>Sign in | LavaLust Products</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&family=Syne:wght@700;800&display=swap');
-        :root { --ink: #3a0f1d; --muted: #7f3d4a; --pink: #ff4d74; --red: #d91d3d; --rose: #ffe2e8; --paper: #fff7f8; --line: #f5bfd0; }
+        :root { --ink: #f5e6e6; --muted: #b98686; --violet: #8a0e1f; --magenta: #ff2d4d; --lavender: #3a1414; --paper: #1a0808; --line: #4a1a1e; }
         * { box-sizing: border-box; }
-        body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; color: var(--ink); font-family: 'Manrope', sans-serif; background: radial-gradient(circle at 15% 15%, rgba(217, 29, 61, .2), transparent 28%), linear-gradient(135deg, #ffe7ec, #fff6f8 52%, #ffdfe7); }
-        .login-card { width: min(430px, 100%); padding: 42px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255, 248, 250, .95); box-shadow: 12px 12px 0 rgba(217, 29, 61, .25); }
-        .eyebrow { margin: 0 0 28px; color: var(--red); font: 500 .72rem 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; }
-        h1 { margin: 0 0 10px; font: 800 clamp(2.4rem, 10vw, 4rem)/.92 'Syne', sans-serif; letter-spacing: -.05em; }
+        body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px; color: var(--ink); font-family: 'Manrope', sans-serif; background: radial-gradient(circle at 10% 15%, rgba(255, 45, 77, .15), transparent 30%), linear-gradient(135deg, #100404, #1c0808); }
+        .login-card { width: min(430px, 100%); padding: 42px; border: 1px solid var(--line); border-radius: 18px; background: rgba(26, 8, 8, .92); box-shadow: 12px 12px 0 #3a0e12; }
+        .eyebrow { margin: 0 0 28px; color: var(--magenta); font: 500 .72rem 'DM Mono', monospace; letter-spacing: .12em; text-transform: uppercase; }
+        h1 { margin: 0 0 10px; color: #fff; font: 800 clamp(2.4rem, 10vw, 4rem)/.92 'Syne', sans-serif; letter-spacing: -.05em; }
         .intro { margin: 0 0 30px; color: var(--muted); line-height: 1.55; }
         label { display: block; margin: 18px 0 8px; color: var(--muted); font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-        input { width: 100%; padding: 13px 14px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: #fff; font: 500 .95rem 'Manrope', sans-serif; }
-        input:focus { outline: 3px solid rgba(255, 77, 116, .18); border-color: var(--pink); }
-        button { width: 100%; margin-top: 28px; padding: 14px; border: 0; border-radius: 8px; color: #fff; background: linear-gradient(135deg, var(--red), var(--pink)); font: 700 .85rem 'Manrope', sans-serif; cursor: pointer; }
-        button:hover { filter: brightness(.96); }
-        .error { margin: 0 0 18px; padding: 12px; border-radius: 8px; color: #9d1635; background: #ffe7ee; font-size: .86rem; }
-        .signup-link { display: block; margin-top: 18px; color: var(--red); font-size: .86rem; text-align: center; text-decoration: none; }
+        input { width: 100%; padding: 13px 14px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: #250b0b; font: 500 .95rem 'Manrope', sans-serif; }
+        input::placeholder { color: #6b4444; }
+        input:focus { outline: 3px solid rgba(255, 45, 77, .2); border-color: var(--magenta); }
+        button { width: 100%; margin-top: 28px; padding: 14px; border: 0; border-radius: 8px; color: #fff; background: var(--violet); font: 700 .85rem 'Manrope', sans-serif; cursor: pointer; transition: background .2s; }
+        button:hover { background: var(--magenta); }
+        .error { margin: 0 0 18px; padding: 12px; border-radius: 8px; color: #ffb4b4; background: rgba(255, 45, 77, .12); border: 1px solid rgba(255, 45, 77, .3); font-size: .86rem; }
+        .signup-link { display: block; margin-top: 18px; color: var(--magenta); font-size: .86rem; text-align: center; text-decoration: none; }
+        .signup-link:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
